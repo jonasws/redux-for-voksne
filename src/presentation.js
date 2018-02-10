@@ -46,10 +46,16 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit>
             "Redux for voksne"
           </Heading>
+          <Text margin="2rem">- patterns i React-verden</Text>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Patterns 101</Heading>
           <Appear>
-            <Text margin="2rem">- patterns i React-verden</Text>
+            <Text margin="2rem">ikke like fremtredende i "frontendsfæren"</Text>
           </Appear>
         </Slide>
+
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>
             Typography
