@@ -1,6 +1,9 @@
 // Import React
 import React from "react";
 
+import * as recompose from "recompose";
+import styled from "styled-components";
+
 // Import Spectacle Core tags
 import {
   Appear,
@@ -12,7 +15,8 @@ import {
   List,
   Quote,
   Slide,
-  Text
+  Text,
+  ComponentPlayground
 } from "spectacle";
 
 // Import theme
@@ -34,6 +38,15 @@ const theme = createTheme(
   }
 );
 
+const CustomPlayground = recompose.withProps({
+  scope: {
+    styled,
+    recompose
+  },
+  theme: "light",
+  height: "20rem"
+})(ComponentPlayground);
+
 export default class Presentation extends React.Component {
   render() {
     return (
@@ -54,6 +67,10 @@ export default class Presentation extends React.Component {
           <Appear>
             <Text margin="2rem">ikke like fremtredende i "frontendsfæren"</Text>
           </Appear>
+        </Slide>
+
+        <Slide>
+          <CustomPlayground code={require("./demos/Comp1.js.raw")} />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">

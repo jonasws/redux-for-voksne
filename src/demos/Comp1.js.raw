@@ -1,0 +1,23 @@
+const RedHeading = styled.p`
+  color: firebrick;
+`;
+
+const enhance = recompose.withStateHandlers(
+  {
+    count: 0
+  },
+  {
+    incrementCount: ({ count }) => value => ({ count: count + value }),
+    resetCount: ({ count }) => () => ({ count: 0 })
+  }
+);
+
+const App = enhance(({ count, incrementCount, resetCount }) => (
+  <div>
+    <p>{`Clicked ${count} times!`}</p>
+    <button onClick={() => incrementCount(2)}>Click me!</button>
+    <button onClick={resetCount}>Reset</button>
+  </div>
+));
+
+render(<App />);
