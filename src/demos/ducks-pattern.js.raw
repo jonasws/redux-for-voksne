@@ -1,0 +1,21 @@
+// Actions
+const CREATE = "my-app/widgets/CREATE";
+const UPDATE = "my-app/widgets/UPDATE";
+
+// Reducer
+export default function reducer(state = {}, action = {}) {
+  switch (action.type) {
+    // do reducer stuff
+    default:
+      return state;
+  }
+}
+
+// Action Creators
+export function createWidget(widget) {
+  return { type: CREATE, widget };
+}
+
+export function loadWidgets() {
+  return { type: LOAD };
+}

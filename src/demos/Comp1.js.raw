@@ -1,7 +1,3 @@
-const RedHeading = styled.p`
-  color: firebrick;
-`;
-
 const enhance = recompose.withStateHandlers(
   {
     count: 0
