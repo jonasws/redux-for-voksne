@@ -37,8 +37,8 @@ require("normalize.css");
 const theme = createTheme(
   {
     primary: "white",
-    secondary: "#1F2022",
-    tertiary: "#03A9FC",
+    seconary: "#010121",
+    tertiary: "#1F2022",
     quartenary: "#CECECE"
   },
   {
@@ -50,7 +50,8 @@ const theme = createTheme(
 // Images to be used in the presentation
 const images = {
   designPatternsCover: require("./images/cover-design-patterns.jpg"),
-  youDontKnowJsCover: require("./images/you-dont-know-js.png")
+  youDontKnowJsCover: require("./images/you-dont-know-js.png"),
+  confusedGif: "https://media.giphy.com/media/2YflHLtLeUbhhVoMCm/giphy.gif"
 };
 
 preloader(images);
@@ -133,9 +134,56 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={3}>Patterns ohoy!</Heading>
+      <Text italic textSize="4rem" margin="0 0 2rem 0">
+        "Patterns that inspired redux"
+      </Text>
+      <Appear>
+        <Text>Dette er ikke en bok...</Text>
+      </Appear>
     </Slide>
 
+    <Slide>
+      <Notes>
+        <ol>
+          <li>1. CQRS - "mange" synder mot denne (purity)</li>
+          <li>2. Elm - mye å lære av måten ting nærmest "må" gjøres</li>
+          <li>3. "Pattern, schmattern"</li>
+        </ol>
+      </Notes>
+      <List>
+        <ListItem italic>Command query responsibility segregation</ListItem>
+        <ListItem>"the Elm architecture"</ListItem>
+        <ListItem>Flux</ListItem>
+        <ListItem>Event sourcing</ListItem>
+      </List>
+    </Slide>
+
+    <Slide bgColor="secondary" transition={["fade"]}>
+      <Heading size={2} textColor="primary" italic>
+        One pattern to rule them all
+      </Heading>
+    </Slide>
+
+    <Slide>
+      <Notes>
+        Dan Abramov gjorde oss alle en tjeneste med å "fremmane spesialisert
+        inkarnasjon av Flux
+      </Notes>
+      <Text textSize="4rem" italic margin="0 0 2rem 0">
+        Reducer pattern
+      </Text>
+      <Appear>
+        <Text>Dette er ikke noe nytt!</Text>
+      </Appear>
+    </Slide>
+
+    <Slide bgColor="secondary" transiton={["spin"]}>
+      <Image src={images.confusedGif} height="500px" />
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>Patterns ohoy!</Heading>
+    </Slide>
     <Slide>
       <Notes>
         <ul>
@@ -153,60 +201,44 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Text>Action-pair</Text>
+      <AmaticHeading size={3}>"Triple threat"</AmaticHeading>
       <CodePane
         theme="light"
         lang="javascript"
-        source={require("./demos/ducks-pattern.js.raw")}
+        source={require("./demos/action-name-triple.js.raw")}
+      />
+    </Slide>
+    <Slide>
+      <AmaticHeading size={3}>Thunking</AmaticHeading>
+      <CodePane
+        theme="light"
+        lang="javascript"
+        source={require("./demos/thunk-flow.js.raw")}
       />
     </Slide>
 
-    <Slide />
-
     <Slide>
-      <CustomPlayground code={require("./demos/Comp1.js.raw")} />
+      <Notes>
+        Angular 1 - React (local state) - Redux (state in "one place") - State
+        where it makes sense
+      </Notes>
+      <Text>Redux vs setState</Text>
     </Slide>
 
-    <Slide transition={["fade"]} bgColor="tertiary">
-      <Heading size={6} textColor="primary" caps>
-        Typography
-      </Heading>
-      <Heading size={1} textColor="secondary">
-        Heading 1
-      </Heading>
-      <Heading size={2} textColor="secondary">
-        Heading 2
-      </Heading>
-      <Heading size={3} textColor="secondary">
-        Heading 3
-      </Heading>
-      <Heading size={4} textColor="secondary">
-        Heading 4
-      </Heading>
-      <Heading size={5} textColor="secondary">
-        Heading 5
-      </Heading>
-      <Text size={6} textColor="secondary">
-        Standard text
-      </Text>
-    </Slide>
-    <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
-        Standard List
-      </Heading>
-      <List>
-        <ListItem>Item 1</ListItem>
-        <ListItem>Item 2</ListItem>
-        <ListItem>Item 3</ListItem>
-        <ListItem>Item 4</ListItem>
-      </List>
-    </Slide>
-    <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-      <BlockQuote>
-        <Quote>Example Quote</Quote>
-        <Cite>Author</Cite>
-      </BlockQuote>
-    </Slide>
+    {/* <Slide>
+        <Text>Action-pair</Text>
+        <CodePane
+        theme="light"
+        lang="javascript"
+        source={require("./demos/ducks-pattern.js.raw")}
+        />
+        </Slide>
+
+        <Slide />
+
+        <Slide>
+        <CustomPlayground code={require("./demos/Comp1.js.raw")} />
+        </Slide> */}
   </Deck>
 );
 

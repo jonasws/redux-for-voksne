@@ -1,0 +1,14 @@
+// Actions
+const API_REQUEST_START = "API_REQUEST_START";
+const API_REQUEST_SUCCESS = "API_REQUEST_SUCCESS";
+const API_REQUEST_ERROR = "API_REQUEST_ERROR";
+
+export const fetchData = data => async dispatch => {
+  dispatch({ type: API_REQUEST_START });
+  try {
+    const response = await doSomeAsyncRequest(data);
+    dispatch({ type: API_REQUEST_SUCCESS, payload: response.dat });
+  } catch (error) {
+    dispatch({ type: API_REQUEST_ERROR, error });
+  }
+};

@@ -1,0 +1,22 @@
+// Actions
+const API_REQUEST_START = "API_REQUEST_START";
+const API_REQUEST_SUCCESS = "API_REQUEST_SUCCESS";
+const API_REQUEST_ERROR = "API_REQUEST_ERROR";
+
+// Reducer
+export default function reducer(state = {}, action = {}) {
+  switch (action.type) {
+    case: API_REQUEST_SUCCESS:
+      return {
+        ...state,
+        data: action.payload
+      }
+    case: API_REQUEST_ERROR:
+      return {
+        ...state,
+        error: "Some error occurred"
+      }
+    default:
+      return state;
+  }
+}
