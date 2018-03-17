@@ -1,0 +1,5 @@
+function createReducer(initialState, handlers) {
+  return function reducer(state = initialState, action) {
+    propOr(identity, action.type, handlers)(state, action)
+  }
+}

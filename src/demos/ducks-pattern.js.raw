@@ -1,21 +1,24 @@
 // Actions
-const CREATE = "my-app/widgets/CREATE";
-const UPDATE = "my-app/widgets/UPDATE";
+const CREATE = "todoapp/todos/CREATE";
+const CLEAR = "todoapp/todos/CLEAR";
 
 // Reducer
 export default function reducer(state = {}, action = {}) {
   switch (action.type) {
-    // do reducer stuff
+    case CREATE:
+      return { ...state, [action.payload.id]: action.payload };
+    case CLEAR:
+      return {};
     default:
       return state;
   }
 }
 
 // Action Creators
-export function createWidget(widget) {
-  return { type: CREATE, widget };
+export function createTodo(todo) {
+  return { type: CREATE, payload: todo };
 }
 
-export function loadWidgets() {
-  return { type: LOAD };
+export function clearTodos() {
+  return { type: CLEAR };
 }

@@ -8,7 +8,7 @@ import styled from "styled-components";
 import {
   Appear,
   Image,
-  CodePane,
+  CodePane as CodePaneBase,
   BlockQuote,
   Cite,
   Deck,
@@ -19,6 +19,7 @@ import {
   Layout,
   Fit,
   Fill,
+  S,
   Quote,
   Slide,
   Text,
@@ -49,9 +50,10 @@ const theme = createTheme(
 
 // Images to be used in the presentation
 const images = {
+  fluxDiagram: require("./images/flux-diagram.png"),
+  reduxDiagram: require("./images/redux-diagram.png"),
   designPatternsCover: require("./images/cover-design-patterns.jpg"),
-  youDontKnowJsCover: require("./images/you-dont-know-js.png"),
-  confusedGif: "https://media.giphy.com/media/2YflHLtLeUbhhVoMCm/giphy.gif"
+  youDontKnowJsCover: require("./images/you-dont-know-js.png")
 };
 
 preloader(images);
@@ -61,6 +63,12 @@ preloader(images);
 const AmaticHeading = recompose.withProps({
   textFont: "Amatic SC"
 })(Heading);
+
+const CodePane = recompose.withProps({
+  textSize: "2rem",
+  overflow: "auto",
+  height: "100vh"
+})(CodePaneBase);
 
 const CustomPlayground = recompose.withProps({
   scope: {
@@ -81,7 +89,12 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
+      <Notes>
+        Dette er i utgangspunktet ikke et Redux-foredrag!. Viktig å påpeke dette
+        tidlig.
+      </Notes>
       <Heading size={2}>Yours truly</Heading>
+      N
       <List>
         <ListItem>Jonas Strømsodd</ListItem>
         <ListItem>Jobbet "alt for mye" med React siden 2015</ListItem>
@@ -101,21 +114,17 @@ const Presentation = () => (
         <Fill>
           <Image src={images.designPatternsCover} height="500px" />
         </Fill>
-
-        <Fill>
-          <Image src={images.youDontKnowJsCover} height="500px" />
-        </Fill>
       </Layout>
     </Slide>
 
     <Slide>
-      <Text>Hva kjennetegner så et pattern?</Text>
+      <Heading size={2}>Hva kjennetegner så et pattern?</Heading>
     </Slide>
 
     <Slide bgColor="secondary" textColor="primary">
-      <Text textColor="tertiary" italic>
-        - Learning JavaScript design patterns
-      </Text>
+      <Heading size={4} textColor="gold" italic>
+        Learning JavaScript design patterns:
+      </Heading>
       <List>
         <Appear>
           <ListItem>Patterns are proven solutions</ListItem>
@@ -124,22 +133,32 @@ const Presentation = () => (
           <ListItem>Patterns can be easily reused</ListItem>
         </Appear>
         <Appear>
-          <ListItem>Patterns can expressive</ListItem>
+          <ListItem>
+            Patterns can be <S type="italic">expressive</S>
+          </ListItem>
         </Appear>
       </List>
     </Slide>
 
     <Slide notes="Ikke gjenferd..">
-      <Text>"Ting som går igjen"</Text>
+      <Heading size={2}>"Ting som går igjen"</Heading>
     </Slide>
 
     <Slide>
-      <Text italic textSize="4rem" margin="0 0 2rem 0">
+      <Heading italic size={2} margin="0 0 2rem 0">
         "Patterns that inspired redux"
-      </Text>
+      </Heading>
       <Appear>
-        <Text>Dette er ikke en bok...</Text>
+        <Text textColor="red">Dette er ikke en bok...</Text>
       </Appear>
+    </Slide>
+
+    <Slide>
+      <Heading size={2}>Men først:</Heading>
+    </Slide>
+
+    <Slide>
+      <Image src={images.reduxDiagram} />
     </Slide>
 
     <Slide>
@@ -158,6 +177,10 @@ const Presentation = () => (
       </List>
     </Slide>
 
+    <Slide>
+      <Image src={images.fluxDiagram} height="50vh" />
+    </Slide>
+
     <Slide bgColor="secondary" transition={["fade"]}>
       <Heading size={2} textColor="primary" italic>
         One pattern to rule them all
@@ -166,24 +189,39 @@ const Presentation = () => (
 
     <Slide>
       <Notes>
-        Dan Abramov gjorde oss alle en tjeneste med å "fremmane spesialisert
-        inkarnasjon av Flux
+        Dan Abramov gjorde oss alle en tjeneste med å "mane frem" en
+        spesialisert inkarnasjon av Flux
       </Notes>
-      <Text textSize="4rem" italic margin="0 0 2rem 0">
+      <Heading size={2} italic margin="0 0 2rem 0">
         Reducer pattern
-      </Text>
+      </Heading>
       <Appear>
         <Text>Dette er ikke noe nytt!</Text>
       </Appear>
     </Slide>
 
-    <Slide bgColor="secondary" transiton={["spin"]}>
-      <Image src={images.confusedGif} height="500px" />
+    <Slide>
+      <Heading size={3}>
+        A reducer is something that iterates over a collection of items and gets
+        a final result out of it.
+      </Heading>
     </Slide>
+
+    {/* Ja, denne er tom! */}
+    <Slide bgColor="secondary" transiton={["spin"]} />
 
     <Slide>
       <Heading size={3}>Patterns ohoy!</Heading>
     </Slide>
+
+    <Slide>
+      <List>
+        <ListItem>Organisering av kode</ListItem>
+        <ListItem>Hvor og hvordan actions dispatches</ListItem>
+        <ListItem>Navngivning</ListItem>
+      </List>
+    </Slide>
+
     <Slide>
       <Notes>
         <ul>
@@ -194,9 +232,38 @@ const Presentation = () => (
       </Notes>
       <AmaticHeading size={3}>Ducks pattern</AmaticHeading>
       <CodePane
+        overflow="auto"
+        height="120vh"
         theme="light"
+        textSize="2rem"
         lang="javascript"
         source={require("./demos/ducks-pattern.js.raw")}
+      />
+    </Slide>
+
+    <Slide>
+      <Notes>Rama shiz osv</Notes>
+      <Text>Mindre boilerplate med Ramda-magi {"<3"}</Text>{" "}
+      <CodePane
+        overflow="auto"
+        height="120vh"
+        theme="light"
+        textSize="2rem"
+        lang="javascript"
+        source={require("./demos/reducing-boilerplate-ramda.js.raw")}
+      />
+    </Slide>
+
+    <Slide>
+      <Notes>Kutte ned boilerplate og switch-ting</Notes>
+      <Text>Da kan reducer forenkles litt:</Text>
+      <CodePane
+        overflow="auto"
+        height="120vh"
+        theme="light"
+        textSize="2rem"
+        lang="javascript"
+        source={require("./demos/reducing-boilerplate.js.raw")}
       />
     </Slide>
 
@@ -209,6 +276,7 @@ const Presentation = () => (
       />
     </Slide>
     <Slide>
+      <Notes>"Proved solution"</Notes>
       <AmaticHeading size={3}>Thunking</AmaticHeading>
       <CodePane
         theme="light"
@@ -223,6 +291,10 @@ const Presentation = () => (
         where it makes sense
       </Notes>
       <Text>Redux vs setState</Text>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>"Further learning"</Heading>
     </Slide>
 
     {/* <Slide>

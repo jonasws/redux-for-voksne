@@ -1,0 +1,6 @@
+export const todos = createReducer([], {
+  [ActionTypes.ADD_TODO](state, action) {
+    let text = action.text.trim()
+    return [...state, text]
+  }
+})
