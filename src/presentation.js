@@ -77,7 +77,8 @@ const CustomPlayground = recompose.withProps({
 
 const Presentation = () => (
   <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-    <Slide transition={["zoom"]} bgColor="primary">
+    <Slide bgColor="secondary" transition={["fade"]} />
+    <Slide transition={["fade"]} bgColor="primary">
       <Heading size={1} fit>
         "Redux for voksne"
       </Heading>
@@ -90,7 +91,6 @@ const Presentation = () => (
         tidlig.
       </Notes>
       <Heading size={2}>Yours truly</Heading>
-      N
       <List>
         <ListItem>Jonas Strømsodd</ListItem>
         <ListItem>Jobbet "alt for mye" med React siden 2015</ListItem>
@@ -363,6 +363,12 @@ const Presentation = () => (
           </Link>
         </ListItem>
       </List>
+    </Slide>
+
+    <Slide bgColor="secondary">
+      <Heading size={1} textColor="primary">
+        ?
+      </Heading>
     </Slide>
   </Deck>
 );
