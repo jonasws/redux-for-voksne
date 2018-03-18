@@ -2,25 +2,22 @@
 import React from "react";
 
 import * as recompose from "recompose";
-import styled from "styled-components";
 
 // Import Spectacle Core tags
 import {
   Appear,
+  Link,
   Image,
   CodePane as CodePaneBase,
-  BlockQuote,
-  Cite,
+  Code,
   Deck,
   Notes,
   Heading,
   ListItem,
   List,
   Layout,
-  Fit,
   Fill,
   S,
-  Quote,
   Slide,
   Text,
   ComponentPlayground
@@ -72,11 +69,10 @@ const CodePane = recompose.withProps({
 
 const CustomPlayground = recompose.withProps({
   scope: {
-    styled,
-    recompose
+    ...recompose
   },
   theme: "light",
-  height: "20rem"
+  height: "100vh"
 })(ComponentPlayground);
 
 const Presentation = () => (
@@ -201,10 +197,14 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={3}>
+      <Text textSize="4rem" italic>
         A reducer is something that iterates over a collection of items and gets
         a final result out of it.
-      </Heading>
+      </Text>
+    </Slide>
+
+    <Slide>
+      <Code>{"(state, action) => newState"}</Code>
     </Slide>
 
     {/* Ja, denne er tom! */}
@@ -242,7 +242,7 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Notes>Rama shiz osv</Notes>
+      <Notes>Ramda shiz osv</Notes>
       <Text>Mindre boilerplate med Ramda-magi {"<3"}</Text>{" "}
       <CodePane
         overflow="auto"
@@ -294,23 +294,76 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={3}>"Further learning"</Heading>
+      <List>
+        <ListItem>Higher Order Components</ListItem>
+        <ListItem>Render props</ListItem>
+      </List>
     </Slide>
 
-    {/* <Slide>
-        <Text>Action-pair</Text>
-        <CodePane
-        theme="light"
-        lang="javascript"
-        source={require("./demos/ducks-pattern.js.raw")}
-        />
-        </Slide>
+    <Slide>
+      <Notes>
+        <ul>
+          <li>Hva bør man putte i sin Redux store?</li>
+          <li>Overgang til snakk om hvilke alternativer man har</li>
+        </ul>
+      </Notes>
+      <Heading>Når er det "riktig" å trekke inn Redux?</Heading>
+    </Slide>
 
-        <Slide />
+    <Slide>
+      <CustomPlayground code={require("./demos/withState-playground.js.raw")} />
+    </Slide>
 
-        <Slide>
-        <CustomPlayground code={require("./demos/Comp1.js.raw")} />
-        </Slide> */}
+    <Slide>
+      <CustomPlayground code={require("./demos/recompose-reducer.js.raw")} />
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>"Lettere" alternativer til Redux</Heading>
+      <List>
+        <ListItem>Context API</ListItem>
+        <ListItem>Unstated</ListItem>
+        <ListItem>Freactal</ListItem>
+        <ListItem>Recompose</ListItem>
+        <ListItem>RxJS</ListItem>
+      </List>
+    </Slide>
+
+    <Slide>
+      <Notes>
+        Funksjonell tankegang: composition, purity, side-effects, events
+      </Notes>
+      <Heading>Konklusjon</Heading>
+      <List>
+        <ListItem>Tankegangen bak Redux er i utgangspunktet ikke ny</ListItem>
+        <ListItem>
+          Det er mye verdi i å vite når man bør vente med å ta i bruk Redux
+        </ListItem>
+        <ListItem>Ting Redux har lært bør vi ta oss med videre</ListItem>
+      </List>
+    </Slide>
+
+    <Slide>
+      <Heading size={3}>"Further learning"</Heading>
+      <List>
+        <ListItem>
+          <Link
+            href="https://www.youtube.com/watch?v=JUuic7mEs-s"
+            target="_blank"
+          >
+            <S type="italic">Advanced patterns in Redux</S>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link
+            href="https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367"
+            target="_blank"
+          >
+            <S type="italic">You Might Not Need Redux</S> - Dan Abramov
+          </Link>
+        </ListItem>
+      </List>
+    </Slide>
   </Deck>
 );
 

@@ -1,4 +1,4 @@
-const enhance = recompose.withStateHandlers(
+const enhance = withStateHandlers(
   {
     count: 0
   },

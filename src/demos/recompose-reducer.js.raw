@@ -1,0 +1,36 @@
+const enhance = compose(
+  withReducer(
+    "state",
+    "dispatch",
+    (state, action) => {
+      if (action.type === "INCREMENT") {
+        return {
+          ...state,
+          count: state.count + 1
+        };
+      } else if (action.type === "DECREMENT") {
+        return {
+          ...state,
+          count: state.count - 1
+        };
+      } else {
+        return state;
+      }
+    },
+    { count: 0 }
+  ),
+  withHandlers(({ dispatch }) => ({
+    incrementCount: () => () => dispatch({ type: "INCREMENT" }),
+    decrementCount: () => () => dispatch({ type: "DECREMENT" })
+  }))
+);
+
+const App = enhance(({ state, incrementCount, decrementCount }) => (
+  <div>
+    <p>Count: {state.count}</p>
+    <button onClick={incrementCount}>Increment</button>
+    <button onClick={decrementCount}>Decrement</button>
+  </div>
+));
+
+render(<App />);
