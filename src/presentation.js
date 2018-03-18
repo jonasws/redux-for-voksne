@@ -62,9 +62,8 @@ const AmaticHeading = recompose.withProps({
 })(Heading);
 
 const CodePane = recompose.withProps({
-  textSize: "2rem",
   overflow: "auto",
-  height: "100vh"
+  height: "70vh"
 })(CodePaneBase);
 
 const CustomPlayground = recompose.withProps({
@@ -72,7 +71,7 @@ const CustomPlayground = recompose.withProps({
     ...recompose
   },
   theme: "light",
-  height: "100vh"
+  height: "120vh"
 })(ComponentPlayground);
 
 const Presentation = () => (
@@ -204,7 +203,9 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Code>{"(state, action) => newState"}</Code>
+      <Text>
+        <Code textSize="5rem">{"(state, action) => newState"}</Code>
+      </Text>
     </Slide>
 
     {/* Ja, denne er tom! */}
@@ -230,7 +231,9 @@ const Presentation = () => (
           <li>Upper snake case</li>
         </ul>
       </Notes>
-      <AmaticHeading size={3}>Ducks pattern</AmaticHeading>
+      <AmaticHeading size={4} margin="-10vh 0 0 0">
+        Ducks pattern
+      </AmaticHeading>
       <CodePane
         overflow="auto"
         height="120vh"
@@ -268,8 +271,11 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <AmaticHeading size={3}>"Triple threat"</AmaticHeading>
+      <AmaticHeading size={3} margin="-10vh 0 0 0">
+        "Triple threat"
+      </AmaticHeading>
       <CodePane
+        textSize="1.5rem"
         theme="light"
         lang="javascript"
         source={require("./demos/action-name-triple.js.raw")}
@@ -279,6 +285,7 @@ const Presentation = () => (
       <Notes>"Proved solution"</Notes>
       <AmaticHeading size={3}>Thunking</AmaticHeading>
       <CodePane
+        textSize="1.5rem"
         theme="light"
         lang="javascript"
         source={require("./demos/thunk-flow.js.raw")}
@@ -290,7 +297,7 @@ const Presentation = () => (
         Angular 1 - React (local state) - Redux (state in "one place") - State
         where it makes sense
       </Notes>
-      <Text>Redux vs setState</Text>
+      <Heading size={2}>Redux vs setState</Heading>
     </Slide>
 
     <Slide>
