@@ -51,6 +51,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "serve": "serve -s build/",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -96,6 +97,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^0.5.1",
+    "serve": "^6.5.3"
   }
 }
