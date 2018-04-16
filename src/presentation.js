@@ -79,9 +79,9 @@ const Presentation = () => (
     <Slide bgColor="secondary" transition={["fade"]} />
     <Slide transition={["fade"]} bgColor="primary">
       <Heading size={1} fit>
-        "Redux for voksne"
+        "Redux for grown-ups"
       </Heading>
-      <Text margin="2rem">- patterns i React-verden</Text>
+      <Text margin="2rem">- patterns in the React "domain"</Text>
     </Slide>
 
     <Slide>
@@ -92,19 +92,16 @@ const Presentation = () => (
       <Heading size={2}>Yours truly</Heading>
       <List>
         <ListItem>Jonas Strømsodd</ListItem>
-        <ListItem>Jobbet "alt for mye" med React siden 2015</ListItem>
+        <ListItem>Working "way too much" with React since 2015</ListItem>
       </List>
     </Slide>
 
     <Slide>
       <Heading size={2}>Patterns 101</Heading>
-      <Appear>
-        <Text margin="2rem">aka "rykk tilbake til start"</Text>
-      </Appear>
     </Slide>
 
     <Slide>
-      <Text>Patterns er noe man leser om i bøker:</Text>
+      <Text>Patterns is something you read about in books:</Text>
       <Layout>
         <Fill>
           <Image src={images.designPatternsCover} height="500px" />
@@ -113,7 +110,7 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={2}>Hva kjennetegner så et pattern?</Heading>
+      <Heading size={2}>How to recognize a pattern?</Heading>
     </Slide>
 
     <Slide bgColor="secondary" textColor="primary">
@@ -133,23 +130,6 @@ const Presentation = () => (
           </ListItem>
         </Appear>
       </List>
-    </Slide>
-
-    <Slide notes="Ikke gjenferd..">
-      <Heading size={2}>"Ting som går igjen"</Heading>
-    </Slide>
-
-    <Slide>
-      <Heading italic size={2} margin="0 0 2rem 0">
-        "Patterns that inspired redux"
-      </Heading>
-      <Appear>
-        <Text textColor="red">Dette er ikke en bok...</Text>
-      </Appear>
-    </Slide>
-
-    <Slide>
-      <Heading size={2}>Men først:</Heading>
     </Slide>
 
     <Slide>
@@ -245,32 +225,6 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Notes>Ramda shiz osv</Notes>
-      <Text>Mindre boilerplate med Ramda-magi {"<3"}</Text>{" "}
-      <CodePane
-        overflow="auto"
-        height="120vh"
-        theme="light"
-        textSize="2rem"
-        lang="javascript"
-        source={require("./demos/reducing-boilerplate-ramda.js.raw")}
-      />
-    </Slide>
-
-    <Slide>
-      <Notes>Kutte ned boilerplate og switch-ting</Notes>
-      <Text>Da kan reducer forenkles litt:</Text>
-      <CodePane
-        overflow="auto"
-        height="120vh"
-        theme="light"
-        textSize="2rem"
-        lang="javascript"
-        source={require("./demos/reducing-boilerplate.js.raw")}
-      />
-    </Slide>
-
-    <Slide>
       <AmaticHeading size={3} margin="-10vh 0 0 0">
         "Triple threat"
       </AmaticHeading>
@@ -301,13 +255,6 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <List>
-        <ListItem>Higher Order Components</ListItem>
-        <ListItem>Render props</ListItem>
-      </List>
-    </Slide>
-
-    <Slide>
       <Notes>
         <ul>
           <li>Hva bør man putte i sin Redux store?</li>
@@ -326,7 +273,7 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={3}>"Lettere" alternativer til Redux</Heading>
+      <Heading size={3}>"Lighter" alternatives to Redux:</Heading>
       <List>
         <ListItem>Context API</ListItem>
         <ListItem>Unstated</ListItem>
@@ -342,11 +289,9 @@ const Presentation = () => (
       </Notes>
       <Heading>Konklusjon</Heading>
       <List>
-        <ListItem>Tankegangen bak Redux er i utgangspunktet ikke ny</ListItem>
-        <ListItem>
-          Det er mye verdi i å vite når man bør vente med å ta i bruk Redux
-        </ListItem>
-        <ListItem>Ting Redux har lært bør vi ta oss med videre</ListItem>
+        <ListItem>The principles behind redux are nothing new!</ListItem>
+        <ListItem>The value of Redux increases by knowing when to "not"</ListItem>
+        <ListItem>We should apply the lessons learned from using Redux in other applications going forward</ListItem>
       </List>
     </Slide>
 
