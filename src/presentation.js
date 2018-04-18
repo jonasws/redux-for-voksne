@@ -110,7 +110,7 @@ const Presentation = () => (
     </Slide>
 
     <Slide>
-      <Heading size={2}>How to recognize a pattern?</Heading>
+      <Heading size={2}>How to identify a pattern?</Heading>
     </Slide>
 
     <Slide bgColor="secondary" textColor="primary">
@@ -171,7 +171,7 @@ const Presentation = () => (
         Reducer pattern
       </Heading>
       <Appear>
-        <Text>Dette er ikke noe nytt!</Text>
+        <Text>This is really nothing new!</Text>
       </Appear>
     </Slide>
 
@@ -197,9 +197,9 @@ const Presentation = () => (
 
     <Slide>
       <List>
-        <ListItem>Organisering av kode</ListItem>
-        <ListItem>Hvor og hvordan actions dispatches</ListItem>
-        <ListItem>Navngivning</ListItem>
+        <ListItem>Structuring our codebase</ListItem>
+        <ListItem>When, where and how to dispatch actions</ListItem>
+        <ListItem>Naming things</ListItem>
       </List>
     </Slide>
 
@@ -218,7 +218,7 @@ const Presentation = () => (
         overflow="auto"
         height="120vh"
         theme="light"
-        textSize="2rem"
+        textSize="1.5rem"
         lang="javascript"
         source={require("./demos/ducks-pattern.js.raw")}
       />
@@ -261,7 +261,7 @@ const Presentation = () => (
           <li>Overgang til snakk om hvilke alternativer man har</li>
         </ul>
       </Notes>
-      <Heading>Når er det "riktig" å trekke inn Redux?</Heading>
+      <Heading>When is the "right" time to pull in Redux?</Heading>
     </Slide>
 
     <Slide>
@@ -290,8 +290,13 @@ const Presentation = () => (
       <Heading>Konklusjon</Heading>
       <List>
         <ListItem>The principles behind redux are nothing new!</ListItem>
-        <ListItem>The value of Redux increases by knowing when to "not"</ListItem>
-        <ListItem>We should apply the lessons learned from using Redux in other applications going forward</ListItem>
+        <ListItem>
+          The value of Redux increases by knowing when to "not"
+        </ListItem>
+        <ListItem>
+          We should apply the lessons learned from using Redux in other
+          applications going forward
+        </ListItem>
       </List>
     </Slide>
 
